@@ -16,12 +16,6 @@ The dataset has information of 100k orders from 2016 to 2018 made at multiple ma
 There are further provided tables which aren't required, but can help with your analysis. The relationships can be analyzed and derived from [Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce).
 
 
-### Roadmap
-Access the [roadmap](https://docs.google.com/spreadsheets/d/1IYXqHU_GGCuASDJ2ZFnN05BwJ-PvZZ3CatUDP2xb8oI/edit#gid=927480768).
-
-Make a copy of this roadmap, and this will act as a list of itmes to complete for the capstone.
-
-
 
 
 
