@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: customers_raw_model
+    description: "This table contains all the info related to each customer."
+    columns:
+      - name: CUSTOMER_ID
+        tests:
+          - not_null
+          - unique
+  - name: orders_raw_model
+    description: "Table with the info related to the orders"
+    columns:
+      - name: ORDER_ID
+        tests:
+          - not_null
+          - unique
+  - name: order_items_raw_model
+    description: "Table that represent the order items"
+    columns:
+      - name: ORDER_ID
+        tests:
+          - not_null
+      - name: PRODUCT_ID
+        tests:
+          - not_null
+  - name: products_raw_model
+    description: "Table object that represent a product from the EComerce"
+    columns:
+      - name: PRODUCT_ID
+        tests:
+          - not_null
+          - unique
+  - name: order_reviews_raw_model
+    description: "Table that represents the reviews and score of each order made from EComerce"
+    columns:
+      - name: REVIEW_ID
+        tests:
+          - not_null
+  - name: date_raw_model
+    description: "This table contains the datails of the date from the first purchase until the last shipment date"
+    columns: 
+      - name: DATE
+        tests:
+          - not_null
+          - unique

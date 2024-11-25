@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: brazilian_ecommerce
+    database: SEP2024_DBT_CAPSTONE_GRP3_DEV
+    schema: BRAZILIAN_ECOMMERCE_SOURCE
+    tables:
+      - name: CUSTOMERS
+        description: "This table contains all the info related to each customer."
+      - name: ORDERS
+        description: "Table with the info related to the orders"
+      - name: ORDER_ITEMS
+        description: "Table that represent the order items"
+      - name: PRODUCTS
+        description: "Table object that represent a product from the EComerce"
+      - name: ORDER_REVIEWS
+        description: "Table that represents the reviews and score of each order made from EComerce"

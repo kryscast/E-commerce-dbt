@@ -1,0 +1,104 @@
+version: 2
+
+models:
+  - name: customers_refined_model
+    description: "This table contains all the info related to each customer."
+    columns:
+      - name: CUSTOMER_SKEY
+        description: "Ensure that surrogate keys are unique and not null to maintain data integrity and reliable identification of records."
+        tests:
+          - not_null
+          - unique
+      - name: CUSTOMER_ID
+        tests:
+          - not_null
+          - unique
+  - name: orders_refined_model
+    description: "Table with the info related to the orders"
+    columns:
+      - name: ORDER_ID
+        tests:
+          - not_null
+          - unique
+      - name: ORDER_SKEY
+        description: "Ensure that surrogate keys are unique and not null to maintain data integrity and reliable identification of records."
+        tests:
+          - not_null
+          - unique
+      - name: ORDER_STATUS
+        description: “{{ doc('_order_status_description') }}”
+  - name: order_items_refined_model
+    description: "Table that represent the order items"
+    columns:
+      - name: ORDER_ID
+        description: "A unique value test will not be performed on this column as it does not meet the uniqueness requirement. A surrogate key will be created to ensure uniqueness."
+        tests:
+          - not_null
+      - name: PRODUCT_ID
+        description: "A unique value test will not be performed on this column as it does not meet the uniqueness requirement. A surrogate key will be created to ensure uniqueness."
+        tests:
+          - not_null
+      - name: ORDER_ITEM_ID
+        description: "A unique value test will not be performed on this column as it does not meet the uniqueness requirement. A surrogate key will be created to ensure uniqueness."
+        tests:
+          - not_null
+      - name: ORDER_ITEMS_SKEY
+        description: "Ensure that surrogate keys are unique and not null to maintain data integrity and reliable identification of records."
+        tests: 
+          - not_null
+          - unique
+  - name: products_refined_model
+    description: "Table that represents the products from the EComerce. This SQL query filters out rows where PRODUCT_CATEGORY_NAME, PRODUCT_NAME_LENGTH, PRODUCT_DESCRIPTION_LENGTH, or PRODUCT_PHOTOS_QTY are null, ensuring that only records with complete data are included."
+    columns:
+      - name: PRODUCT_ID
+        tests:
+          - not_null
+          - unique
+      - name: PRODUCT_SKEY
+        description: "Ensure that surrogate keys are unique and not null to maintain data integrity and reliable identification of records."
+        tests:
+          - not_null
+          - unique
+      - name: PRODUCT_CATEGORY_NAME
+        description: "This test is being conducted to verify that null values have been successfully removed from the column."
+        tests:
+          - not_null
+      - name: PRODUCT_NAME_LENGTH
+        description: "This test is being conducted to verify that null values have been successfully removed from the column."
+        tests:
+          - not_null
+      - name: PRODUCT_DESCRIPTION_LENGTH
+        description: "This test is being conducted to verify that null values have been successfully removed from the column."
+        tests:
+          - not_null
+      - name: PRODUCT_PHOTOS_QTY
+        description: "This test is being conducted to verify that null values have been successfully removed from the column."
+        tests:
+          - not_null
+  - name: order_reviews_refined_model
+    description: "Table that represents the reviews and score of each order made from EComerce. This query selects only the REVIEW_ID, ORDER_ID, and REVIEW_SCORE columns from the order_reviews_raw_model table, excluding other columns like REVIEW_COMMENT_TITLE, REVIEW_COMMENT_MESSAGE, REVIEW_CREATION_DATE, and REVIEW_ANSWER_TIMESTAMP that were originally present in the raw model."
+    columns:
+      - name: REVIEW_ID
+        description: "A unique value test will not be performed on this column as it does not meet the uniqueness requirement. A surrogate key will be created to ensure uniqueness."
+        tests:
+          - not_null
+      - name: ORDER_REVIEW_SKEY
+        description: "Ensure that surrogate keys are unique and not null to maintain data integrity and reliable identification of records."
+        tests:
+          - not_null
+          - unique
+  - name: date_refined_model
+    description: "This table contains the datails of the date from the first purchase until the last shipment date"
+    columns: 
+      - name: DATE
+        tests:
+          - not_null
+          - unique
+      - name: DATE_SKEY
+        description: "Ensure that surrogate keys are unique and not null to maintain data integrity and reliable identification of records."
+        tests:
+          - not_null
+          - unique
+      
+
+          
